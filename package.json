@@ -1,0 +1,55 @@
+{
+  "name": "simple-shared-wallet",
+  "version": "1.0.0",
+  "description": "Simple shared wallet contract enables you to store ERC20 tokens and Ethereum which can be accessed by several people.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "solhint": "solhint \"contracts/**/*.sol\"",
+    "solium": "solium -d contracts",
+    "coverage": "./node_modules/.bin/solidity-coverage",
+    "pre-commit": "sol-flattener ./contracts/SimpleToken.sol ./flattened/SimpleToken.sol .,../node_modules && sol-flattener ./contracts/SimpleWallet.sol ./flattened/SimpleWallet.sol .,../node_modules && rm -r ./build && rm -r ./docs && truffle compile && solidoc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CYBRToken/simple-shared-wallet.git"
+  },
+  "keywords": [
+    "erc20",
+    "ethereum",
+    "contract",
+    "smart contract",
+    "wallet",
+    "erc721",
+    "shared",
+    "shared wallet",
+    "multi-sig"
+  ],
+  "author": "Binod Nirvan",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/CYBRToken/simple-shared-wallet/issues"
+  },
+  "homepage": "https://github.com/CYBRToken/simple-shared-wallet#readme",
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "openzeppelin-solidity": "2.3.0",
+    "pify": "^4.0.1",
+    "web3": "^0.20.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^3.0.0",
+    "husky": "^2.4.1",
+    "solidity-coverage": "^0.5.11"
+  }
+}
